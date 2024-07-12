@@ -19,7 +19,7 @@ const AddProduct = () => {
   useEffect(() => {
     if (id) {
       axios
-        .get(`http://localhost:5000/products/${id}`)
+        .get(`http://localhost:3000/products/${id}`)
         .then((response) => {
           setProduct(response.data);
         })
@@ -39,7 +39,7 @@ const AddProduct = () => {
     if (id) {
       // Update existing product
       axios
-        .put(`http://localhost:5000/products/${id}`, product)
+        .put(`http://localhost:3000/products/${id}`, product)
         .then(() => {
           toast.success("Product updated successfully");
           navigate("/");
@@ -51,7 +51,7 @@ const AddProduct = () => {
     } else {
       // Add new product
       axios
-        .post("http://localhost:5000/products", product)
+        .post("http://localhost:3000/products", product)
         .then(() => {
           toast.success("Product added successfully");
           setProduct({
