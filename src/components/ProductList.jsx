@@ -20,7 +20,7 @@ const ProductList = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/products")
+      .get("http://localhost:3000/products")
       .then((response) => {
         setProducts(response.data);
         setLoading(false);
@@ -35,7 +35,7 @@ const ProductList = () => {
   const handleDelete = (id) => {
     if (window.confirm("Are you sure you want to delete this product?")) {
       axios
-        .delete(`http://localhost:5000/products/${id}`)
+        .delete(`http://localhost:3000/products/${id}`)
         .then(() => {
           setProducts(products.filter((product) => product.id !== id));
           toast.success("Product deleted successfully");
@@ -92,7 +92,10 @@ const ProductList = () => {
                 >
                   <img src={edit} alt="" />
                 </Button>
-                <Button onClick={() => handleDelete(product.id)} className="edit">
+                <Button
+                  onClick={() => handleDelete(product.id)}
+                  className="edit"
+                >
                   <img src={dlete} alt="" />
                 </Button>
               </td>
